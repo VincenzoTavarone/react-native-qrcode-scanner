@@ -132,15 +132,8 @@ export default class QRCodeScanner extends Component {
     return (
       <View style={{
           flex: 1,
-          marginTop: 64,
         }}>
-        <View style={styles.infoView}>
-          {this._renderTopContent()}
-        </View>
         {this._renderCamera()}
-        <View style={styles.infoView}>
-          {this._renderBottomContent()}
-        </View>
       </View>
     )
   }
@@ -181,7 +174,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    height: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
   },
 
