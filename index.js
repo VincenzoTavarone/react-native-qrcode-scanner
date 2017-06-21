@@ -121,9 +121,7 @@ export default class QRCodeScanner extends Component {
       )
     }
     return (
-      <Camera style={styles.camera} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
-        {this._renderCameraMarker()}
-      </Camera>
+      <Camera style={styles.camera} onBarCodeRead={this._handleBarCodeRead.bind(this)}/>
     )
   }
 
@@ -170,11 +168,11 @@ const styles = StyleSheet.create({
   },
 
   camera: {
-    flex: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-    height: Dimensions.get('window').height,
+    flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // backgroundColor: 'transparent',
+    // height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
   },
 
