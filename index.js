@@ -67,18 +67,31 @@ export default class QRCodeScanner extends Component {
     }
    }
 
+  shouldComponentUpdate(nextProps, nextState){
+    if(this.props.reactivate !==  nextProps.reactivate){
+      if(nextProps.reactivate){
+        this.setState({
+          scanning : false
+        })
+      }
+      return true;
+    }
+    return false;
+  }
+
+
   _setScanning(value) {
     this.setState({ scanning: value });
   }
 
   _handleBarCodeRead(e) {
-    Vibration.vibrate();
     if (!this.state.scanning) {
+      Vibration.vibrate();
       this._setScanning(true);
       this.props.onRead(e)
-      if (this.props.reactivate) {
-        setTimeout(() => (this._setScanning(false)), this.props.reactivateTimeout);
-      }
+      // if (this.props.reactivate) {
+      //   setTimeout(() => (this._setScanning(false)), this.props.reactivateTimeout);
+      // }
     }
     return;
   }
